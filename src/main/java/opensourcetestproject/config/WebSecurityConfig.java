@@ -31,19 +31,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/registration/**").not().fullyAuthenticated()
-                    .antMatchers("/main/**").authenticated()
-                    .antMatchers("/admin/**").hasRole(String.valueOf(Role.ADMIN))
-                    .antMatchers("/user/**").hasRole(String.valueOf(Role.USER))
-                    .antMatchers("/").permitAll()//на главную страничку мы разрешаем волный доступ
+                .antMatchers("/registration/**").not().fullyAuthenticated()
+                .antMatchers("/main/**").authenticated()
+                .antMatchers("/admin/**").hasRole(String.valueOf(Role.ADMIN))
+                .antMatchers("/user/**").hasRole(String.valueOf(Role.USER))
+                .antMatchers("/").permitAll()//на главную страничку мы разрешаем волный доступ
                 .and()
-                    .formLogin()
-                    .loginPage("/login")
-                    .defaultSuccessUrl("/")
-                    .permitAll()
-                    .and()
-                    .logout()
-                    .permitAll();
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll();
 
     }
 
